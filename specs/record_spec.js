@@ -6,6 +6,9 @@ var record2 = new Record("Reload", "Metallica", 11.99, "Heavy Metal");
 var record3 = new Record("Amazing Things", "Runrig", 8.99, "Soft Rock");
 var record4 = new Record("The Corries Greatest Hits", "The Corries", 15.99, "Folk");
 var record5 = new Record("Absolution", "Muse", 8.99, "Rock");
+var record6 = new Record("Now 87", "Various", 12.99, "Pop");
+var record7 = new Record("Never Been Better", "Olly Murs", 6.99, "Pop");
+var record8 = new Record("Led Zeppelin", "Led Zeppelin", 6.99, "Blues/rock");
 
 
 describe("Record", function(){
