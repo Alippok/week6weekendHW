@@ -101,6 +101,12 @@ describe("Record Store", function(){
     recordStore1.removeRecord("Kill Em All")
     assert.deepEqual([record2, record3, record4, record5, record6, record7, record8], recordStore1.recordsHolder);
   });
+
+  it("should return a message if record to be removed cannot be found", function(){
+    recordStore1.removeRecord("Kill Em All")
+    assert.deepEqual("No record with that title", recordStore1.removeRecord("Kill Em All"));
+
+  });
   // it("should be able to sell a record and the record should be removed from the store", function(){
   //   recordStore1.sellRecord("Kill Em All");
   //   assert.deepEqual([record2, record3, record4, record5, record6, record7, record8], recordStore1.recordsHolder);
