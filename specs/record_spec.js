@@ -21,5 +21,9 @@ describe("Record", function(){
     assert.equal(15.99, record4.price);
   });
 
+  it("should have a genre", function(){
+    assert.equal("Rock", record5.genre);
+  });
+
 
 });
