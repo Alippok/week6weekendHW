@@ -30,7 +30,8 @@ RecordStore.prototype = {
     };
   },
   searchByRecordTitle: function(title){
-    var list = this.inventory();
+    var list = this.inventory(); //made a list so I can then search this list with a user 
+    //defined query
     var failedResult;
     var successfullResult = [];
 
@@ -98,6 +99,15 @@ RecordStore.prototype = {
     }.bind(this));
     
     return this.resultChecker(removedRecord, failedResult);
+  },
+
+  sellRecord: function(title){
+    this.recordsHolder.forEach(function(record){
+      if (record.title === title){
+        this.balance += record.price
+        removedRecord = this.removeRecord(title)
+      }
+    }.bind(this));
   }
 
 

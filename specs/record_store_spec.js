@@ -111,9 +111,14 @@ describe("Record Store", function(){
     assert.deepEqual([record2], recordStore1.removeRecord("Reload"))
   });
 
-  // it("should be able to sell a record and the record should be removed from the store", function(){
-  //   recordStore1.sellRecord("Kill Em All");
-  //   assert.deepEqual([record2, record3, record4, record5, record6, record7, record8], recordStore1.recordsHolder);
-  // });
+  it("should be able to sell a record which adds the record's price to the balance", function(){
+    recordStore1.sellRecord("Absolution")
+    assert.equal(408.99, recordStore1.balance);
+  });
+
+  it("should be able to sell a record and the record should be removed from the store", function(){
+    recordStore1.sellRecord("The Corries Greatest Hits");
+    assert.deepEqual([record3, record6, record7, record8], recordStore1.recordsHolder);
+  });
 
 });
