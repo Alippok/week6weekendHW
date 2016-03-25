@@ -17,5 +17,9 @@ describe("Record", function(){
     assert.equal("Metallica", record1.artist);
   });
 
+  it("should have a price", function(){
+    assert.equal(15.99, record4.price);
+  });
+
 
 });
