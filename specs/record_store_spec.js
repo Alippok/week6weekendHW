@@ -56,4 +56,8 @@ describe("Record Store", function(){
     assert.deepEqual([record1, record2, record3, record4, record5, record6, record7, record8], recordStore1.recordsHolder);
   });
 
+  it("should be able to retrieve a record by title", function(){
+    assert.deepEqual(record4, recordStore1.searchByRecordTitle("The Corries Greatest Hits"));
+  });
+
 });

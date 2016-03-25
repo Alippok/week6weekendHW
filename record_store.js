@@ -20,8 +20,20 @@ RecordStore.prototype = {
       list.push(record);
     });
     return list;
-  }
+  },
 
+  searchByRecordTitle: function(title){
+    var list = this.inventory()
+    var result 
+    list.forEach(function(record){
+      if (record.title === title){
+        result = record;
+      } else {
+        return "No record with that title"
+      };
+    });
+    return result
+  }
 
 
 };
