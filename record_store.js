@@ -80,8 +80,22 @@ RecordStore.prototype = {
 
     });
     return this.resultChecker(successfullResult, failedResult);    
-  }
+  },
+  
+  removeRecord: function(title){
 
+    var removedRecord
+    var failedResult 
+    this.recordsHolder.forEach(function(record){
+      if (record.title === title){
+        var index = this.recordsHolder.indexOf(record)
+        removedRecord = this.recordsHolder.splice(index, 1)
+      } else {
+        failedResult = "No record with that title"
+      };
+    }.bind(this));
+    return this.resultChecker(removedRecord, failedResult);
+  }
 
 
 };

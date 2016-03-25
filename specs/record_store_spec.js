@@ -97,4 +97,13 @@ describe("Record Store", function(){
       );
   });
 
+  it("should be able to remove a record from it's records holder", function(){
+    recordStore1.removeRecord("Kill Em All")
+    assert.deepEqual([record2, record3, record4, record5, record6, record7, record8], recordStore1.recordsHolder);
+  });
+  // it("should be able to sell a record and the record should be removed from the store", function(){
+  //   recordStore1.sellRecord("Kill Em All");
+  //   assert.deepEqual([record2, record3, record4, record5, record6, record7, record8], recordStore1.recordsHolder);
+  // });
+
 });
