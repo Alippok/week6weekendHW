@@ -89,11 +89,14 @@ RecordStore.prototype = {
     this.recordsHolder.forEach(function(record){
       if (record.title === title){
         var index = this.recordsHolder.indexOf(record)
-        removedRecord.push(this.recordsHolder.splice(index, 1))
+        var tempRecordHolder = this.recordsHolder.splice(index, 1)
+        removedRecord.push(tempRecordHolder.pop())//Added this bit in to avoid an array within
+        //an array
       } else {
         failedResult = "No record with that title"
       };
     }.bind(this));
+    
     return this.resultChecker(removedRecord, failedResult);
   }
 
