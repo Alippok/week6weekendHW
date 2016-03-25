@@ -118,8 +118,16 @@ RecordStore.prototype = {
     }.bind(this));
   },
 
+  stockValue: function(){
+   var list = this.inventory();
+   var prices = [];
 
+   list.forEach(function(record){
+    prices.push(record.price);
+   });
 
+   return this.sum(prices)
+ }
 
 };
 
