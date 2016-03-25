@@ -12,6 +12,14 @@ RecordStore.prototype = {
   addRecord: function(callBack, title, artist, price, genre){
     var record = new callBack(title, artist, price, genre)
     this.recordsHolder.push(record)
+  },
+
+  inventory: function(){
+    var list = [];
+    this.recordsHolder.forEach(function(record){
+      list.push(record);
+    });
+    return list;
   }
 
 
