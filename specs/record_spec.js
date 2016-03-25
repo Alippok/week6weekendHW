@@ -10,7 +10,11 @@ var record5 = new Record("Absolution", "Muse", 8.99, "Rock");
 
 describe("Record", function(){
   it("should have a title", function(){
-    assert.equal("Amazing Things", record3.title)
+    assert.equal("Amazing Things", record3.title);
+  });
+
+  it("should have an artist", function(){
+    assert.equal("Metallica", record1.artist);
   });
 
 
