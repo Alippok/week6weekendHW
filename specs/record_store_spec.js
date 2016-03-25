@@ -31,4 +31,20 @@ describe("Record Store", function(){
     assert.equal(400, recordStore1.balance)
   })
 
+  it("should be able to add a record", function(){
+    recordStore1.addRecord(Record, "Kill Em All", "Metallica", 9.99, "Heavy Metal");
+    assert.deepEqual([record1], recordStore1.recordsHolder);
+  });
+
+  it("should be able to hold multiple records", function(){
+    recordStore1.addRecord(Record, "Reload", "Metallica", 11.99, "Heavy Metal");
+    recordStore1.addRecord(Record, "Amazing Things", "Runrig", 8.99, "Soft Rock");
+    recordStore1.addRecord(Record, "The Corries Greatest Hits", "The Corries", 15.99, "Folk");
+    recordStore1.addRecord(Record, "Absolution", "Muse", 8.99, "Rock");
+    recordStore1.addRecord(Record, "Now 87", "Various", 12.99, "Pop");
+    recordStore1.addRecord(Record, "Never Been Better", "Olly Murs", 6.99, "Pop");
+    recordStore1.addRecord(Record, "Led Zeppelin", "Led Zeppelin", 6.99, "Blues/rock");
+    assert.deepEqual([record1, record2, record3, record4, record5, record6, record7, record8], recordStore1.recordsHolder);
+  });
+
 });
