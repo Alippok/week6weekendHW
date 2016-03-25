@@ -121,4 +121,7 @@ describe("Record Store", function(){
     assert.deepEqual([record3, record6, record7, record8], recordStore1.recordsHolder);
   });
 
+  it("should have a sum function", function(){
+    assert.equal(15, recordStore1.sum([1,2,3,4,5]))
+  })
 });

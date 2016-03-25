@@ -22,6 +22,14 @@ RecordStore.prototype = {
     return list;
   },
 
+  sum: function(array){
+    var total = 0
+    array.forEach(function(element){
+      total += element
+    });
+    return total;
+  },
+
   resultChecker: function(result1, result2){
     if (result1.length > 0){
       return result1;
@@ -108,7 +116,9 @@ RecordStore.prototype = {
         removedRecord = this.removeRecord(title)
       }
     }.bind(this));
-  }
+  },
+
+
 
 
 };
