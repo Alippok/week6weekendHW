@@ -62,9 +62,24 @@ RecordStore.prototype = {
       };
 
     });
-
     return this.resultChecker(successfullResult, failedResult);
+  },
 
+  searchByRecordGenre: function(genre){
+    var list = this.inventory();
+    var failedResult;
+    var successfullResult = [];//using this alot! Could refactor into one function and then 
+    //pass in any of the specific search functions.
+
+    list.forEach(function(record){
+      if (record.genre === genre){
+        successfullResult.push(record);
+      } else {
+        failedResult = "No records with that genre";
+      };
+
+    });
+    return this.resultChecker(successfullResult, failedResult);    
   }
 
 

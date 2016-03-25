@@ -88,4 +88,13 @@ describe("Record Store", function(){
     assert.deepEqual("Found no records by that artist", recordStore1.searchByRecordArtist("Take That"));
   });
 
+  it("should be able to retrieve all records of a specific genre", function(){
+    assert.deepEqual([record6, record7], recordStore1.searchByRecordGenre("Pop"));
+  });
+
+  it("should return a message if no records with specific genre are in the store", function(){
+    assert.equal("No records with that genre", recordStore1.searchByRecordGenre("Electro Pop")
+      );
+  });
+
 });
