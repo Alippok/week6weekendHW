@@ -27,4 +27,8 @@ describe("Record Store", function(){
     assert.deepEqual([], recordStore1.recordsHolder)
   })
 
+  it("should have a balance", function(){
+    assert.equal(400, recordStore1.balance)
+  })
+
 });
