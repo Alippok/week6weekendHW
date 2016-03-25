@@ -22,17 +22,31 @@ RecordStore.prototype = {
     return list;
   },
 
+  resultChecker: function(result1, result2){
+    if (result1){
+      return result1;
+    } else {
+      return result2;
+    };
+  },
   searchByRecordTitle: function(title){
-    var list = this.inventory()
-    var result 
+    var list = this.inventory();
+    var failedResult;
+    var successfullResult;
+
+    
     list.forEach(function(record){
+      // console.log(title);
+      // console.log(record.title);
+      // console.log(record)
       if (record.title === title){
-        result = record;
+        successfullResult = record;
       } else {
-        return "No record with that title"
+        failedResult = "No record with that title";
       };
     });
-    return result
+    
+    return this.resultChecker(successfullResult, failedResult)
   }
 
 

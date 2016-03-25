@@ -56,8 +56,23 @@ describe("Record Store", function(){
     assert.deepEqual([record1, record2, record3, record4, record5, record6, record7, record8], recordStore1.recordsHolder);
   });
 
+  it("should have a checker to return a successfull search result ", function(){
+      successfullResult = record1;
+      failedresult = "No record with that title"
+      assert.equal(record1, recordStore1.resultChecker(successfullResult, failedresult))
+  })
+
+  it("should return failed result if successfullResult is empty", function(){
+      successfullResult = null;
+      failedresult = "No record with that title"
+      assert.equal(failedresult, recordStore1.resultChecker(successfullResult, failedresult))
+  })
+
   it("should be able to retrieve a record by title", function(){
-    assert.deepEqual(record4, recordStore1.searchByRecordTitle("The Corries Greatest Hits"));
+    assert.deepEqual(record2, recordStore1.searchByRecordTitle("Reload"));
   });
 
+  it("should return a message if record title is not found", function(){
+    assert.equal("No record with that title", recordStore1.searchByRecordTitle("Changes"));
+  });
 });
