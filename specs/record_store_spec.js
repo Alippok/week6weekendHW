@@ -3,7 +3,7 @@ var RecordStore = require('../record_store.js');
 var Record = require('../record.js');
 
 
-var recordStore1 = new RecordStore("Spinners Records Ltd.", "Edinburgh")
+var recordStore1 = new RecordStore("Spinners Records Ltd.", "Edinburgh");
 
 var record1 = new Record("Kill Em All", "Metallica", 9.99, "Heavy Metal");
 var record2 = new Record("Reload", "Metallica", 11.99, "Heavy Metal");
@@ -19,4 +19,8 @@ describe("Record Store", function(){
     assert.equal("Spinners Records Ltd.", recordStore1.name);
   });
 
-})
+  it("should have a city location", function(){
+    assert.equal("Edinburgh", recordStore1.city);
+  });
+
+});
