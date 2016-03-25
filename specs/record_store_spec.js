@@ -51,4 +51,9 @@ describe("Record Store", function(){
     assert.deepEqual([record1, record2, record3, record4, record5, record6, record7, record8], recordStore1.inventory());
   });
 
+  it("should not permanently remove items from records holder after invoking inventory function", function(){
+    recordStore1.inventory();
+    assert.deepEqual([record1, record2, record3, record4, record5, record6, record7, record8], recordStore1.recordsHolder);
+  });
+
 });
