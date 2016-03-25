@@ -47,7 +47,26 @@ RecordStore.prototype = {
     });
     
     return this.resultChecker(successfullResult, failedResult)
+  },
+
+  searchByRecordArtist: function(artist){
+    var list = this.inventory();
+    var failedResult;
+    var successfullResult = [];
+
+    list.forEach(function(record){
+      if(record.artist == artist){
+        successfullResult.push(record);
+      } else {
+        failedResult = "Found no records by that artist"
+      };
+
+    });
+
+    return this.resultChecker(successfullResult, failedResult)
+
   }
+
 
 
 };

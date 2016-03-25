@@ -75,4 +75,9 @@ describe("Record Store", function(){
   it("should return a message if record title is not found", function(){
     assert.equal("No record with that title", recordStore1.searchByRecordTitle("Changes"));
   });
+
+  it("should be able to retrieve all records by a specific artist", function(){
+    assert.deepEqual([record1, record2], recordStore1.searchByRecordArtist("Metallica"));
+  });
+
 });
