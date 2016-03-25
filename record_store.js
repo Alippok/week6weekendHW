@@ -23,7 +23,7 @@ RecordStore.prototype = {
   },
 
   resultChecker: function(result1, result2){
-    if (result1){
+    if (result1.length > 0){
       return result1;
     } else {
       return result2;
@@ -32,7 +32,7 @@ RecordStore.prototype = {
   searchByRecordTitle: function(title){
     var list = this.inventory();
     var failedResult;
-    var successfullResult;
+    var successfullResult = [];
 
     
     list.forEach(function(record){
@@ -40,13 +40,13 @@ RecordStore.prototype = {
       // console.log(record.title);
       // console.log(record)
       if (record.title === title){
-        successfullResult = record;
+        successfullResult.push(record);
       } else {
         failedResult = "No record with that title";
       };
     });
     
-    return this.resultChecker(successfullResult, failedResult)
+    return this.resultChecker(successfullResult, failedResult);
   },
 
   searchByRecordArtist: function(artist){
@@ -58,12 +58,12 @@ RecordStore.prototype = {
       if(record.artist == artist){
         successfullResult.push(record);
       } else {
-        failedResult = "Found no records by that artist"
+        failedResult = "Found no records by that artist";
       };
 
     });
 
-    return this.resultChecker(successfullResult, failedResult)
+    return this.resultChecker(successfullResult, failedResult);
 
   }
 

@@ -57,19 +57,19 @@ describe("Record Store", function(){
   });
 
   it("should have a checker to return a successfull search result ", function(){
-      successfullResult = record1;
+      successfullResult = [record1];
       failedresult = "No record with that title"
-      assert.equal(record1, recordStore1.resultChecker(successfullResult, failedresult))
+      assert.deepEqual([record1], recordStore1.resultChecker(successfullResult, failedresult))
   })
 
   it("should return failed result if successfullResult is empty", function(){
-      successfullResult = null;
+      successfullResult = [];
       failedresult = "No record with that title"
       assert.equal(failedresult, recordStore1.resultChecker(successfullResult, failedresult))
   })
 
   it("should be able to retrieve a record by title", function(){
-    assert.deepEqual(record2, recordStore1.searchByRecordTitle("Reload"));
+    assert.deepEqual([record2], recordStore1.searchByRecordTitle("Reload"));
   });
 
   it("should return a message if record title is not found", function(){
@@ -78,6 +78,14 @@ describe("Record Store", function(){
 
   it("should be able to retrieve all records by a specific artist", function(){
     assert.deepEqual([record1, record2], recordStore1.searchByRecordArtist("Metallica"));
+  });
+
+  it("should be able to retrieve all records by a specific artist", function(){
+    assert.deepEqual([record3], recordStore1.searchByRecordArtist("Runrig"));
+  });
+
+  it("should return a message if there is no records by given artist", function(){
+    assert.deepEqual("Found no records by that artist", recordStore1.searchByRecordArtist("Take That"));
   });
 
 });
