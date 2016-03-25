@@ -23,4 +23,8 @@ describe("Record Store", function(){
     assert.equal("Edinburgh", recordStore1.city);
   });
 
+  it("should have a records holder", function(){
+    assert.deepEqual([], recordStore1.recordsHolder)
+  })
+
 });
