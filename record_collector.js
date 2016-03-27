@@ -15,11 +15,13 @@ RecordCollector.prototype = {
   
   lookUp: function(title, recordStore){
     var result = recordStore.searchByRecordTitle(title);
-    return result.pop();
+    return result;
+        
   },
 
   priceOfRecord: function(title, recordStore){
-    var record = this.lookUp(title, recordStore);
+    var result = this.lookUp(title, recordStore);
+    record = result.pop();
     return record.price;
   }
   

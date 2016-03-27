@@ -47,12 +47,15 @@ describe("Record Collector", function(){
     recordStore1.addRecord(Record, "Never Been Better", "Olly Murs", 6.99, "Pop");
     recordStore1.addRecord(Record, "Led Zeppelin", "Led Zeppelin", 6.99, "Blues/rock");
 
-    assert.deepEqual(record2, recordCollector1.lookUp("Reload", recordStore1))
+    assert.deepEqual([record2], recordCollector1.lookUp("Reload", recordStore1))
   });
 
   it("should be able to look up price of searched record", function(){
-    
-    assert.equal(11.99, recordCollector1.priceOfRecord("Reload", recordStore1))
+    assert.equal(11.99, recordCollector1.priceOfRecord("Reload", recordStore1));
+  });
+
+  it("should receive an error message of record searched is not in store", function(){
+    assert.equal("No record with that title", recordCollector1.lookUp("Now 90", recordStore1))  
   });
 
 
