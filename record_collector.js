@@ -8,6 +8,12 @@ var RecordCollector = function(name){
 };
 
 
+RecordCollector.prototype = {
+  addRecord: function(record){
+    this.recordsHolder.push(record);
+  }
+}
+
 
 
 module.exports = RecordCollector;
