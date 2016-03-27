@@ -50,7 +50,10 @@ describe("Record Collector", function(){
     assert.deepEqual(record2, recordCollector1.lookUp("Reload", recordStore1))
   });
 
-  // it("should be able to look up price of searched record")
+  it("should be able to look up price of searched record", function(){
+    
+    assert.equal(11.99, recordCollector1.priceOfRecord("Reload", recordStore1))
+  });
 
 
 

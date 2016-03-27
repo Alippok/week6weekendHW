@@ -16,7 +16,15 @@ RecordCollector.prototype = {
   lookUp: function(title, recordStore){
     var result = recordStore.searchByRecordTitle(title);
     return result.pop();
+  },
+
+  priceOfRecord: function(title, recordStore){
+    var record = this.lookUp(title, recordStore);
+    return record.price;
   }
+  
+
+
 }
 
 
