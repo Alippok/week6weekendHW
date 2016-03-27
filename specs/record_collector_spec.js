@@ -47,8 +47,10 @@ describe("Record Collector", function(){
     recordStore1.addRecord(Record, "Never Been Better", "Olly Murs", 6.99, "Pop");
     recordStore1.addRecord(Record, "Led Zeppelin", "Led Zeppelin", 6.99, "Blues/rock");
 
-    assert.deepEqual([record2], recordCollector1.lookUp("Reload", recordStore1))
+    assert.deepEqual(record2, recordCollector1.lookUp("Reload", recordStore1))
   });
+
+  // it("should be able to look up price of searched record")
 
 
 

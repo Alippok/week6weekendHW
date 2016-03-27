@@ -15,7 +15,7 @@ RecordCollector.prototype = {
   
   lookUp: function(title, recordStore){
     var result = recordStore.searchByRecordTitle(title);
-    return result;
+    return result.pop();
   }
 }
 
