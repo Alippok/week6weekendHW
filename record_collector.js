@@ -3,8 +3,8 @@
 
 var RecordCollector = function(name){
   this.name = name;
-  this.recordsHolder = []
-
+  this.recordsHolder = [];
+  this.balance = 350;
 };
 
 

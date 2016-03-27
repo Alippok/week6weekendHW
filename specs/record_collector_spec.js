@@ -12,8 +12,12 @@ describe("Record Collector", function(){
   });
 
   it("should begin with an empty records holder", function(){
-    assert.equal(0, recordCollector1.recordsHolder.length)
-  })
+    assert.equal(0, recordCollector1.recordsHolder.length);
+  });
+
+  it("should have a balance", function(){
+    assert.equal(350, recordCollector1.balance);
+  });
 
 
 
