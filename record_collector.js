@@ -26,7 +26,9 @@ RecordCollector.prototype = {
   },
 
   buyRecord: function(title, recordStore){
-    var result = recordStore.sellRecord(title)
+    var price = this.priceOfRecord(title, recordStore);
+    this.balance -=  price;
+    var result = recordStore.sellRecord(title);
     this.addRecord(result.pop());
   }
   

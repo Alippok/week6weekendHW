@@ -61,10 +61,14 @@ describe("Record Collector", function(){
   it("should be able to buy a record", function(){
     recordCollector1.buyRecord("Absolution", recordStore1)//should the collector be taking in 
     //the store or the stor taking in the collectore?
-    
+
     assert.deepEqual([record1, record5], recordCollector1.recordsHolder )
   });
 
+  it("should take record price from its balance when it buys a record", function(){
+    recordCollector1.buyRecord("Led Zeppelin", recordStore1)
+    assert.equal(334.02, recordCollector1.balance)
+  });
 
 
 
