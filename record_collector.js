@@ -23,6 +23,11 @@ RecordCollector.prototype = {
     var result = this.lookUp(title, recordStore);
     record = result.pop();
     return record.price;
+  },
+
+  buyRecord: function(title, recordStore){
+    var result = recordStore.sellRecord(title)
+    this.addRecord(result.pop());
   }
   
 

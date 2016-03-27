@@ -110,12 +110,14 @@ RecordStore.prototype = {
   },
 
   sellRecord: function(title){
+    var removedRecord
     this.recordsHolder.forEach(function(record){
       if (record.title === title){
         this.balance += record.price
         removedRecord = this.removeRecord(title)
       }
     }.bind(this));
+    return removedRecord
   },
 
   stockValue: function(){

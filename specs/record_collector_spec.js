@@ -58,6 +58,13 @@ describe("Record Collector", function(){
     assert.equal("No record with that title", recordCollector1.lookUp("Now 90", recordStore1))  
   });
 
+  it("should be able to buy a record", function(){
+    recordCollector1.buyRecord("Absolution", recordStore1)//should the collector be taking in 
+    //the store or the stor taking in the collectore?
+    
+    assert.deepEqual([record1, record5], recordCollector1.recordsHolder )
+  });
+
 
 
 
