@@ -11,6 +11,11 @@ var RecordCollector = function(name){
 RecordCollector.prototype = {
   addRecord: function(record){
     this.recordsHolder.push(record);
+  },
+  
+  lookUp: function(title, recordStore){
+    var result = recordStore.searchByRecordTitle(title);
+    return result;
   }
 }
 

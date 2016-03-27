@@ -5,6 +5,8 @@ var Record = require('../record.js')
 
 var recordCollector1 = new RecordCollector("Joe Bloggs")
 
+var recordStore1 = new RecordStore("Vinyl Stores", "Glasgow")
+
 var record1 = new Record("Kill Em All", "Metallica", 9.99, "Heavy Metal");
 var record2 = new Record("Reload", "Metallica", 11.99, "Heavy Metal");
 var record3 = new Record("Amazing Things", "Runrig", 8.99, "Soft Rock");
@@ -32,7 +34,20 @@ describe("Record Collector", function(){
     //I kind of want this to be a method that cannot be called without paying for the record 
     //first??
     recordCollector1.addRecord(record1)
-    assert.deepEqual([record1], recordCollector1.recordsHolder )
+    assert.deepEqual([record1], recordCollector1.recordsHolder)
+  });
+
+  it("should be able to look up the record store for a specific record", function(){
+    recordStore1.addRecord(Record, "Kill Em All", "Metallica", 9.99, "Heavy Metal" )
+    recordStore1.addRecord(Record, "Reload", "Metallica", 11.99, "Heavy Metal");
+    recordStore1.addRecord(Record, "Amazing Things", "Runrig", 8.99, "Soft Rock");
+    recordStore1.addRecord(Record, "The Corries Greatest Hits", "The Corries", 15.99, "Folk");
+    recordStore1.addRecord(Record, "Absolution", "Muse", 8.99, "Rock");
+    recordStore1.addRecord(Record, "Now 87", "Various", 12.99, "Pop");
+    recordStore1.addRecord(Record, "Never Been Better", "Olly Murs", 6.99, "Pop");
+    recordStore1.addRecord(Record, "Led Zeppelin", "Led Zeppelin", 6.99, "Blues/rock");
+
+    assert.deepEqual([record2], recordCollector1.lookUp("Reload", recordStore1))
   });
 
 
